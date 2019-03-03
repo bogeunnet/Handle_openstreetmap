@@ -23,7 +23,6 @@ def num2deg(xtile, ytile, zoom):
 
 # Equations References
 # https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
-# source = "http://www.4umaps.eu/{0}/{1}/{2}.png"
 source_for_colap = "http://a.tile.openstreetmap.org/"
 # source_colap = "http://a.tile.openstreetmap.org/{0}/{1}/{2}.png"
 source_colap = "https://maps.wikimedia.org/osm-intl/{0}/{1}/{2}.png"          ## 이 스타일이 가장 네이버지도와 흡사            순위 1
