@@ -69,6 +69,13 @@ print(num2deg(top_left[0], top_left[1], zoom))
 # Original is
 print(num2deg(bottom_right[0], bottom_right[1], zoom))
 
+x_zero = num2deg(top_left[0], top_left[1], zoom)[0]
+y_zero = num2deg(top_left[0], top_left[1], zoom)[1]
+
+print(x_zero, y_zero)
+
+
+
 
 
 # create tile list
