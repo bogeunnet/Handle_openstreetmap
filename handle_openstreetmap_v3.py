@@ -84,19 +84,21 @@ def get_map(east, west, north, south, zoom):
     except:
         print("Cached. So, No operations happened")
 
-    return x_zero_ul, y_zero_ul,x_zero_br, y_zero_br
+    return x_zero_ul, y_zero_ul,x_zero_br, y_zero_br, width, height
 
 east = 126.954
 west = 127.105
 north = 37.505
 south = 37.406
 
-xyzero = get_map(west,east,north,south, 13)
+xyzero = get_map(west,east,north,south, 12)
 
 x_zero_ul = xyzero[0]
 y_zero_ul = xyzero[1]
 x_zero_br = xyzero[2]
 y_zero_br = xyzero[3]
+width = xyzero[4]
+height = xyzero[5]
 
 print(str(x_zero_ul), str(y_zero_ul))
 print(str(x_zero_ul-west), str(y_zero_ul-north))
@@ -104,3 +106,9 @@ print(str(x_zero_ul-west), str(y_zero_ul-north))
 print(str(x_zero_br), str(y_zero_br))
 print(str(x_zero_ul-east), str(y_zero_ul-south))
 
+
+dx = abs(x_zero_ul - x_zero_br)
+dy = abs(y_zero_ul - y_zero_br)
+print(width, height)
+print(dx, dy)
+print(str(dx/width), str(dy/height))
