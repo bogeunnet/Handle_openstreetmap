@@ -52,8 +52,8 @@ def get_map(east, west, north, south, zoom):
 
     # download tiles and make map
 
-    height = (bottom_right[1] - top_left[1]) * 256
-    width = (bottom_right[0] - top_left[0]) * 256
+    height = (bottom_right[1] - top_left[1] + 1 ) * 256
+    width = (bottom_right[0] - top_left[0] + 1) * 256
     img = Image.new("RGB", (width, height))
 
     for idx, tile in enumerate(tiles):
@@ -103,3 +103,4 @@ print(str(x_zero_ul-west), str(y_zero_ul-north))
 
 print(str(x_zero_br), str(y_zero_br))
 print(str(x_zero_ul-east), str(y_zero_ul-south))
+
