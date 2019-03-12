@@ -38,8 +38,11 @@ def get_map(east, west, north, south, zoom):
 
     y_zero_ul = num2deg(top_left[0], top_left[1], zoom)[0]
     x_zero_ul = num2deg(top_left[0], top_left[1], zoom)[1]
-    y_zero_br = num2deg(bottom_right[0], bottom_right[1], zoom)[0]
-    x_zero_br = num2deg(bottom_right[0], bottom_right[1], zoom)[1]
+
+    ### 19. 3/12 Tile에서 맨 아래 오른쪽 지점을 찾기 위해서는, 그 타일의 시작점이 아니라, 대각선 아래의 타일의 시작점을 잡아야 진정한 bottom_right가 된다
+    y_zero_br = num2deg(bottom_right[0]+1, bottom_right[1]+1, zoom)[0]
+    x_zero_br = num2deg(bottom_right[0]+1, bottom_right[1]+1, zoom)[1]
+
 
     # create tile list
     tiles = []
@@ -92,13 +95,25 @@ west = 126.86648
 north = 37.481263
 south = 37.426031
 
-############## zoom is 12
-zoom=12
-margin_width = 0.01
-margin_height = 0.01
 
-############## zoom is 13
-# zoom = 13
+# ############## zoom is 11
+# zoom=11
+# margin_width = 0.05
+# margin_height = 0.05
+
+
+# ############## zoom is 12
+# zoom=12
+# margin_width = 0.01
+# margin_height = 0.01
+
+############ zoom is 13
+zoom = 13
+margin_width = 0.005
+margin_height = 0.005
+
+# ############ zoom is 14
+# zoom = 14
 # margin_width = 0.005
 # margin_height = 0.005
 
@@ -119,13 +134,18 @@ dx_west = abs(x_zero_ul - (west - margin_width))
 dy_north = abs(y_zero_ul - (north + margin_height))
 dx_east = abs(x_zero_br - (east + margin_width))
 dy_south = abs(y_zero_br - (south - margin_height))
+print(dy_south, dx_east)
 
 cut_west = (width * (dx_west)) / wholesize_x
 cut_north = (height * (dy_north)) / wholesize_y
 cut_east = (width * (dx_east)) / wholesize_x
 cut_south = (height * (dy_south)) / wholesize_y
+print(cut_south, cut_east)
 
 image = Image.open('imgABC.jpg')
 box = (cut_west, cut_north, width - cut_east , height - cut_south)
 cropped_image = image.crop(box)
 cropped_image.save('v3_img_'+str(zoom)+'_.jpg')
+
+print(width,height)
+print(cut_west, cut_north, width - cut_east , height - cut_south)
