@@ -130,10 +130,10 @@ height = xyzero[5]
 wholesize_x = abs(x_zero_ul - x_zero_br)
 wholesize_y = abs(y_zero_ul - y_zero_br)
 
-dx_west = abs(x_zero_ul - (west)
-dy_north = abs(y_zero_ul - (north)
-dx_east = abs(x_zero_br - (east)
-dy_south = abs(y_zero_br - (south)
+dx_west = abs(x_zero_ul - west)
+dy_north = abs(y_zero_ul - north)
+dx_east = abs(x_zero_br - east)
+dy_south = abs(y_zero_br - south)
 print(dy_south, dx_east)
 
 cut_west = (width * (dx_west)) / wholesize_x
