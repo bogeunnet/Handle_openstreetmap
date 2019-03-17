@@ -1,10 +1,10 @@
 # Handle_openstreetmap
 OpenStreetmap handling with python
 
-Handle_openstreetmap_v2 is improved version and easy to use code style.
-
-I recommend to use 2nd version of python code.
-
-And if you want to get up/left and bottom/right position. please use 3rd version. (and bug fixed)
+To use this code, enter east/west/north/south boundary to get 2D image of openstreetmap.
 
 If you have any question and any suggestion to collaborate, please contace me.
+
+Use handle_openstreetmap_v3_cropped_image.py code
+
+I will update additional codes improving input method (use redis) in few days.
